@@ -23,7 +23,7 @@ html {
     text-decoration: none;
   }
   h1 {
-    font-size: 100px;
+    font-size: 60px;
     line-height: 1;
   }
   h2 {
@@ -71,7 +71,7 @@ html {
     min-width: 1100px;
     width:65%;
     margin: 0 auto;
-    padding-left: 250px;
+    padding-left: 300px;
     background-image: url(blackboard1.jpeg);
     background-size: cover;
  }

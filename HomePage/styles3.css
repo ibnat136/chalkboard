@@ -67,14 +67,9 @@ html {
     margin-right: 100px;
   }
   
-  header img{
-    padding-top: 0px;
-    /* background-image: url("/Users/ibnatnuha/Desktop/chalkboard/HomePage/blackboard.png"); */
-    /* width: 900px;
-    background-size: cover;
-    background-position: center;
-    height: 300px; */
-    /* margin-right: 900px; */
+  .logo{
+    margin-left: 0px;
+    margin-left: 250px;
   }
 
  .signup-form{

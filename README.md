@@ -23,6 +23,8 @@ I learned how to create sitemap and wireframe.By doing this I learned how import
 
 Me and my team mate both equally distrubuted our work. We divided the html portion of our webpage where I created the welcome page and all component for instructor pages such as Instructor home page, each course page and a submission page where the instructor can see the submission of each student. I have also created a siign up page for the users who doesn't have an account. Below are some screenshots of my created webpages.
 
+In the wireframe there were some features that we were mising such as leave option for instructor. In the wereframe we didn't show the instructor can leave course by themselves or another instructor can remove an instructor. We also changed some of the design aspect. 
+
 ### Welcome page view
 ![Sign View](Index.png)
 

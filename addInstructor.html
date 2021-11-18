@@ -9,29 +9,24 @@
         <header>
           <div class="content-wrap">
             <img src="../images/chalkboard-logos_transparent.png" alt="chalkboard logo" class="logo">
-              <h1 style="text-align: center;">Join ChalkBoard Today</h1>
+              <h1 style="text-align: center;">Create Your Class</h1>
 <form method="POST" action="#">
     <div class="signup-form">
-       <label for="userEmail" style="margin-right: 20px;">Email</label>
-       <input type="text" id="userEmail" name="userEmail" required placeholder="name@domain.com" pattern="[a-zA-Z0-9-_\.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*">
+       <label for="userEmail" style="margin-right: 20px;">First name</label>
+       <input type="text" id="userEmail" name="userEmail" required>
     </div>
 
     <div class="signup-form">
-       <label for="userPassword" style="margin-right: 10px;">Password</label>
-       <input type="password" id="userPassword" name="userPassword" placeholder="password" minlength="8" required>
+       <label for="userPassword" style="margin-right: 10px;">Last Name</label>
+       <input type="text" id="userPassword" name="userPassword" required>
     </div>
 
     <div class="signup-form">
-        <label for="school"  style="margin-right: 10px;">School</label>
-        <input type="text" id="school" name="school" placeholder="name" required>
-     </div>
-
-    <div class="signup-form">
-       <label for="dateToSend" style="margin-right: 20px;">DOB</label>
-  <input type="date" name="dateToSend" id="dateToSend">
+       <label style="margin-right: 20px;">Course Number</label>
+  <input type="text">
     </div>
 
-  <input type="submit" form="form1" value="Sign Up" style="margin-left: 240px; padding:10px 20px; background-color: #2F3061; color: white;">
+  <input type="submit" form="form1" value="Add Instructor" style="margin-left: 240px; padding:10px 20px; background-color: #2F3061; color: white;" onclick="myFunction()">
   </form>
  
           </div>
@@ -70,6 +65,11 @@
           </div>
         </footer>
       </main>
+      <script>
+        function myFunction() {
+          alert("Successful!");
+        }
+        </script>
 </body>
 </html>
 
@@ -100,4 +100,3 @@
     </div>
 
   <button type="submit" form="form1" value="Send Birthday Message">Sign Up</button> -->
-

@@ -5,40 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chalkboard</title>
     <!-- <link href="https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,600&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style1.css">
   </head>
   <body>
     <main>
       <!-- ***************  ABOUT / PROFILE  **************** -->
       <header class="headerimg">
         <div class="content-wrap">
-          <img src="chalkboard-logos_white.png" class="logo">
+          <img src="../images/chalkboard-logos_white.png" alt="logo" class="logo">
+
              
-            <div class="sign-in project-item">
+            <!-- <div class="sign-in project-item">
                 <article class="signin">Sign In</article>
                 <p style="padding-top: 10px;">to your ChalkBoard account<p>
                     <form action="#" method="POST" enctype="#">
                         <div class="sign">
                         <label for="userName"></label>
                         <input type="text" name="userName" id="userName" required placeholder="Email">
-                        </div>
+                        </div> -->
                 
-                        <div class="sign">
+                        <!-- <div class="sign">
                             <label for="password"></label>
                             <input type="text" name="password" id="password" placeholder="password" minlength="8" required >
-                        </div>
+                        </div> -->
                         <!-- <div>
                         <label for="about">About you: </label>
                         <textarea name="about" id="about" rows="3" cols="50"></textarea>
                         </div> -->
-                        <div class="sign">
+                        <!-- <div class="sign">
                             <input type="submit" value="Submit" class="submit">
-                        </div>
-                        <p style="text-align: center;">OR</p>
+                        </div> -->
+                        <!-- <p style="text-align: center;">OR</p>
                         <h4 style="text-align: center;">Don't Have an Account?</h4>
                         <button class="button">Sign Up</button>
                     </form>
-          </div>            
+          </div>             -->
             <!-- <img src="/Users/ibnatnuha/Desktop/chalkboard/HomePage/blackboard.png" alt="blackboard"> -->
         </div>
       </header>
@@ -53,9 +55,42 @@
 
           <!-- Project 1 -->
           <section class="project-item content-wrap divider">
-            <img src="teaching.jpeg" alt="Lynda & LinkedIn Learning course list">
-            <h2>Welcome</h2>
-            <h4>to chalkboard! Here we Teach, Learn and Grow together</h4>
+            <h2 style="text-align: center;">Sign In</h2>
+    
+                <div class="middle-column">
+                    <div id="box5">
+                 
+                        <p>For Student</p>
+
+                        <label for="userName"></label>
+                      
+                        <input type="text" name="userName" id="userName" required placeholder="Email">
+                        <label for="password"></label>
+                        <input type="text" name="password" id="password" placeholder="password" minlength="8" required>
+                        <a href="studentPage.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; color:goldenrod;">Go somewhere</a>
+                    </div>
+                    <div id="box6">
+                      
+                       <p> For Teacher</p>
+                      
+                        <label for="userName"></label>
+                        <input type="text" name="userName" id="userName" required placeholder="Email">
+                        <label for="password"></label>
+                        <input type="text" name="password" id="password" placeholder="password" minlength="8" required>
+                        <a href="instructor.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; color: goldenrod;">Go somewhere</a>
+                    </div>
+                    <div id="box7">
+                        <p>For Admin</p>
+                        <label for="userName"></label>
+                        <input type="text" name="userName" id="userName" required placeholder="Email">
+                        <label for="password"></label>
+                        <input type="text" name="password" id="password" placeholder="password" minlength="8" required>
+                        <a href="admin.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; color: goldenrod;">Go somewhere</a>
+                    </div>
+                </div>
+                <h2 style="text-align: center;">Sign Up</h2>
+                <a href="signup.html" class="btn btn-primary" style="margin-top: 40px; margin-left: 340px; color: goldenrod;">Go somewhere</a>
+            
             <!-- <a class="btn" href="https://www.linkedin.com/learning/instructors/christina-truong?u=2125562" target="_blank">LinkedIn Learning</a>
             <a class="btn" href="https://www.lynda.com/Christina-Truong/7842227-1.html">Lynda.com</a>
           </section>
@@ -65,8 +100,8 @@
             <img src="images/project-women-tech.jpg" alt="Women and Tech website">
             <h3>Women&&Tech</h3>
             <p>Women&&Tech was launched in 2012 to feature interviews with different women working in the tech industry. I became familiar with them when I was invited to be one of the interviewees! A few years later, I joined the team and helped with the relaunch of the site as the front-end architect.</p>
-            <a class="btn" href="http://christinatruong.com/projects/women-and-tech-redesign.html" target="_blank">View the case study</a>
-          </section> -->
+            <a class="btn" href="http://christinatruong.com/projects/women-and-tech-redesign.html" target="_blank">View the case study</a> -->
+          </section>
 
           <!-- Project 3 -->
           <!-- <section class="project-item">
@@ -81,7 +116,9 @@
       <!-- ****************  WORK EXPERIENCE  ******************** -->
       <section class="work-experience">
         <div class="content-wrap item-details divider">
-          <h2>About</h2>
+          <img src="../images/teaching.jpeg" alt="teacher">
+          <h2 style="margin-top: 20px;">About</h2>
+            <p>to chalkboard! Here we Teach, Learn and Grow together</p>
           <p>Since this pandemic, we wanted to create a platform where learning process can be easier for both teacher an students</p>
           <p>Chalkboard was build in 2020 to give platform to educational institutaion for online classes</p>
 
@@ -154,7 +191,7 @@
           <h2>Our Partners</h2>
 
           <section>
-            <h3>We are happy to announce that CUNY-Queens College is now our partner!</h3>
+            <h6>We are happy to announce that CUNY-Queens College is now our partner!</h6>
             <!-- <p>BA, Computer Science, 2022</p> -->
             <!-- <p>14 week full-time program covering HTML, CSS, Flash, Photoshop, PHP and JavaScript.</p> -->
           </section>

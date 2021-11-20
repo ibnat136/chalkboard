@@ -1,3 +1,4 @@
+
 html {
   box-sizing: border-box;
 }
@@ -23,7 +24,7 @@ a:hover {
   text-decoration: none;
 }
 h1 {
-  font-size: 80px;
+  font-size: 100px;
   line-height: 1;
 }
 h2 {
@@ -50,8 +51,8 @@ h3 {
   margin: 0;
 }
 .divider > section {
-  border-bottom: 1px dashed #343434;
-  padding: 25px 0;
+  /* border-bottom: 1px dashed #343434;
+  padding: 25px 0; */
 }
 .divider > section:last-of-type {
   border-bottom: none;
@@ -61,129 +62,21 @@ h3 {
 /* Profile
 ------------------------------------*/
 header {
- 
+  background: #97938b;
   color: #a91900;
-  text-align: left;
-  margin-right: 100px;
-}
-
-.nav{
-  border:1px solid;
-  padding:5px;
-  background-color:#2F3061;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  color:white;
-  text-decoration: rgb(228, 228, 228);
-  text-align: left;
-  margin-top: 30px;
-  padding:15px;
-}
-
-.nav-bar{
-  margin-top: 30px;
-}
-
-.logo{
-margin-left: 0px;
-margin-left: 250px;
-}
-
-
-/* Projects
-------------------------------------*/
-/* .projects {
-  background: #F7FFF7;
-} */
-.buttons{
-  margin-left: 330px;
-  
-}
-.courses{
-  background-color:#2F3061;
-  color: white;
-  padding: 10px 20px;
-}
-
-
-
-.projects a {
-  color: #2F3061;
-}
-.projects .btn {
-  color: #F7FFF7;
-  background: #2F3061;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 4px;
-  display: inline-block;
-}
-.projects .btn:hover {
-  background: rgba(47, 48, 97, 80%);
-}
-.project-item {
-  overflow: hidden;
-}
-.project-item img {
-  float: left;
-  margin-right: 20px;
-}
-.project-item h3 {
-  margin-top: 0;
-}
-
-
-/* Work Experience
-------------------------------------*/
-/* .work-experience {
-  background: #A1C6D7;
-} */
-.job-item {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  column-gap: 20px;
-}
-
-
-/* Education
-------------------------------------*/
-.education {
-  background-image: url(../images/joanna-kosinska-unsplash.jpg);
-  background-size: cover;
-  background-position: top right;
-  padding-bottom: 100px;
-}
-.education p {
-  width: 60%;
-}
-
-
-/* Contact Info
-------------------------------------*/
-footer {
-  background: #343434;
-  color: #F7FFF7;
   text-align: center;
 }
-.contact-list {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+
+.projects{
+  background:rgb(190, 185, 185);
 }
-.contact-list a {
-  padding: 15px;
-  display: inline-block;
+footer{
+  background:gray;
 }
+.education{
+  background:darkcyan;
 
-
-
-.sign-in{
-  position: absolute;
-  left: 1000px;
-  top: 75px;
-  margin-top:10px;
 }
-
-.sign-in p{
-  text-align: center;
+a.hover{
+  background-color: red;
 }

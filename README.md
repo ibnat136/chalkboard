@@ -25,6 +25,8 @@ Me and my team mate both equally distrubuted our work. We divided the html porti
 
 In the wireframe there were some features that we were mising such as leave option for instructor. In the wereframe we didn't show the instructor can leave course by themselves or another instructor can remove an instructor. We also changed some of the design aspect. 
 
+For delivarable 2 me and my team mate add more responsiveness with css and also we used bootstrap. I also made sure that all the pages are linked and every button is showing it's purpose on the page. This delivarable helped to learn more about bootstrap. For delivarable 2 we used visual studio.
+
 ### Welcome page view
 ![Sign View](Index.png)
 

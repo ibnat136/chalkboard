@@ -7,6 +7,10 @@ Deliverable 1:
 
 Ibnat and I are both equal contributors and we divided our work, I worked on the student's chalkboard page and the admin page. Since D1 was about HTML I have created basic web pages for Student view, course info, submission page, class work and Admin view, where I have made all the pages responsive and added buttons, inputs and etc.
 
+Deliverable 2:
+
+In this deliverable we fixed whatever issues we had that our teacher pointed to us. Where one of the issue was that the pages were not connected to each other. I worked on the student's view so, I connected all the pages that where supposed to relate to the student view such as class view for student and also added the related pages for class such as  student work submission page. Also I have connected the instructor's view and the student's view into admin so the admin can view all the details of what the instructor or the student are doing with chalkboard. 
+
 ### Student View
 ![Student View](studentview.png)
 ### Student Course View

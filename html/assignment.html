@@ -3,49 +3,52 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>submission</title>
+    <title>Assignment</title>
     <!-- <link href="https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,600&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="css/styles6.css">
+    <link rel="stylesheet" href="../css/styles5.css">
   </head>
   <body>
     <main>
       <!-- ***************  ABOUT / PROFILE  **************** -->
       <header>
         <div class="content-wrap">
-          <img src="images/chalkboard-logos_transparent.png" class="logo">
-            <h1 style= "text-align: center;">
-               Submissions
+          <img src="../images/chalkboard-logos_transparent.png" class="logo">
+            <h1 style="text-align: center;">
+               Assignment
             </h1>  
         </div>
       </header>
 
-
       <!-- ************ PROJECTS / PORTFOLIO  ************** -->
       <section class="projects">
         <div class="content-wrap divider">
-          <h2>All student submission:</h2>
-          <ul id="ssubmission">
-              <li>List of all the sudent's work<br>
-                <label for="feedback"></label>
-                <textarea name="about" id="about" rows="3" cols="50"></textarea>
-                <br>
-                <label for="grade">Grade</label>
-                <br>
-                <input type="text" id="grade">
-                <br>
-                <button type="button" value="SubmitCourse">Submit</button>
-                <br><br>
-            </li>
-          </ul>
+          <h2 style="text-align: center;">Lessons:</h2>
+          <label for="about">Write in </label>
+        <textarea name="about" id="about" rows="10" cols="80"></textarea>
+        <br>
+        <div style="margin-top: 15px;">
+        <label for="picture" style="margin-top: 10px">Upload a File </label>
+        <input type="file" name="picture" id="picture">
+      </div>
 
+        <br>
+        <label for="upload">Upload </label>
+        <input type="submit" name="picture" id="upload">
         </div>
       </section>
 
       <!-- ****************  WORK EXPERIENCE  ******************** -->
-      <section class="work-experience">
+      <!-- <section class="work-experience">
         <div class="content-wrap item-details divider">
-          <button type="button" value="OpenCourse" class="buttons courses" onclick="myFunction()">Reopen Course</button>
-          </section>
+          <h2>Instructors</h2>
+          <ul>
+            <li>Instructor 1 <button type="button" form="form1" value="delete Course">Remove Instructor</button></li>
+            <li>Instructor 3 <button type="button" form="form1" value="delete Course">Remove Instructor</button></li>
+        </ul>
+        <button type="button" form="form1" value="LeaveCourse">Leave This Course</button>
+         
+            </div>
+          </section> -->
           
       <footer>
         <div class="content-wrap">
@@ -61,10 +64,5 @@
         </div>
       </footer>
     </main>
-    <script>
-      function myFunction() {
-        alert("Successful!");
-      }
-      </script>
   </body>
 </html>

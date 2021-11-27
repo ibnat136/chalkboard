@@ -80,3 +80,12 @@ footer{
 a.hover{
   background-color: red;
 }
+
+.nav{
+border:1px solid;
+padding:5px;
+background-color:rgb(128, 124, 122);
+font-family:Georgia, 'Times New Roman', Times, serif;
+color:lightblue;
+text-decoration: rgb(238, 238, 238);
+}

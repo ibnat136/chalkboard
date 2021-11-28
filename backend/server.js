@@ -1,15 +1,16 @@
-const express = require('express')
-const app = express()
-const expressLayouts = require('express-ejs-layouts')
+const express= require('express')
+const app= express()
 
-const indexRouter = require('./routes/index.js')
+const { dirname } = require('path');
+const path = require('path');
 
-app.set('view engine', 'ejs')
-app.set('views', __dirname + '/views')
-app.set('layout', 'layouts/layouts')
-app.use(expressLayouts)
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname,'./static')))
 
-app.use('/', indexRouter)
+app.get('/',(req,res)=>{
+    res.render('page/index.ejs')
+})
 
-app.listen(process.env.PORT || 3002)
+app.get('/signup',(req,res)=>{
+    res.render('page/signup.ejs')
+})
+app.listen(3002)

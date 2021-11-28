@@ -12,20 +12,17 @@
       <!-- ***************  ABOUT / PROFILE  **************** -->
       <header>
         <div class="content-wrap">
-          <img src="../images/chalkboard-logos_transparent.png" alt="chalk board logo" class="logo">
+          <a href="instructor.html"><img src="../images/chalkboard-logos_transparent.png" alt="chalk board logo" class="logo"></a>
             <h1>
                Welcome to Course 1
             </h1>  
             <h3>Course Number:<span ></span></h3>
-            <h3>Course Discription:<p>This is Course 1. This class contains the materials such as....</p></h3>
-            <div class="buttons">
-            <button type="button" form="form1" value="delete Course" class="courses" onclick="myFunction()">Delete This Course</button>
-            <a class="nav" href="assignment.html">
-            <button type="button" form="form1" value="add assignment" class="courses">Add assignment</button>
-          </a>
-            <a href="submissions.html">
-            <button type="button" form="form1" value="submission" class="courses" >Submissions</button>
-          </a>
+            <h3>Course Discription:</h3>
+            <p>This is Course 1. This class contains the materials such as....</p>
+            <div class="buttons content-wrap">
+            <button type="button" value="delete Course"style="position:static; text-align: center; color:white; display: inline-block;" class="courses" onclick="myFunction()">Delete This Course</button>
+            <a  href="assignment.html" style="position:static; text-align: center; color:white; display: inline-block;" class="courses">Add assignment</a>
+            <a  href="submissions.html" style="position:static; text-align: center; color:white; display: inline-block; margin-top: 10px;" class="courses">Submissions</a>
             </div>
         </div>
       </header>
@@ -35,10 +32,19 @@
       <section class="projects">
         <div class="content-wrap divider">
           <h2 style="text-align: center;">Student:</h2>
-          <ul style="margin-left: 330px;">
-              <li>Student 1</li>
-              <li>Student 2</li>
-          </ul>
+          <div style="overflow-x:auto;">
+            <table>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+              </tr>
+              
+            </table>
+          </div>
         </div>
       </section>
 
@@ -46,12 +52,14 @@
       <section class="work-experience">
         <div class="content-wrap item-details divider">
           <h2 style="text-align: center;">Instructors</h2>
-          <ul style="margin-left: 260px;">
-            <li>Instructor 1 <button type="button" form="form1" value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
-            <li>Instructor 3 <button type="button" form="form1" value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
+          <div class="content-wrap">
+            <li>Instructor 1 <button type="button"  value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
+            <li>Instructor 3 <button type="button"  value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
         </ul>
+      </div>
+      <ul class="contact-list">
         <div class="buttons">
-        <button type="button" form="form1" value="LeaveCourse" class="courses" onclick="myFunction()">Leave This Course</button>
+        <button type="button"  value="LeaveCourse" class="courses" onclick="myFunction()">Leave This Course</button>
       </div>
             </div>
           </section>

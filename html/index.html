@@ -3,89 +3,47 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chalkboard</title>
     <!-- <link href="https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,600&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <a href="index.html"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></a>
     <link rel="stylesheet" href="../css/style1.css">
   </head>
   <body>
     <main>
       <!-- ***************  ABOUT / PROFILE  **************** -->
-      <header class="headerimg">
-        <div class="content-wrap">
-        </div>
-      </header>
+      
       <!-- ************ PROJECTS / PORTFOLIO  ************** -->
-      <section class="projects">
+      <div class="projects">
           <!-- Project 1 -->
-          <section class="project-item content-wrap divider">
-            <h2 style="text-align: center; margin-right: 350px;">Sign In</h2>
+          <div class="project-item content-wrap divider">
+         
 
-            <div class="container">
-            <div class="grid">
-              <div class="g-col-6 g-col-md-4">
-
-                <div class="middle-column">
-                  <div id="box5">
-               
-                      <p>For Student</p>
-
-                      <label for="userName"></label>
-                    
-                      <input type="text" name="userName" id="userStudent" required placeholder="Email">
-                      <label for="password"></label>
-                      <br>
-                      <input type="password" name="password" id="passwordStudent" placeholder="password" minlength="8" required>
-                      <br>
-                      <a href="studentPage.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; color:goldenrod;">Sign In</a>
-                  </div>
-                  </div>
-              </div>
-              <div class="g-col-6 g-col-md-4">
-                <div class="middle-column">
-                  <div id="box6">
-               
-                      <p>For Teacher</p>
-
-                      <label for="userName"></label>
-                      <input type="text" name="userName" id="userName" required placeholder="Email">
-                      <label for="password"></label>
-                      <br>
-                      <input type="password" name="password" id="password" placeholder="password" minlength="8" required>
-                      <br>
-                      <a href="instructor.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 5px; color:goldenrod;">Sign In</a>
-                  </div>
-                  </div>
-              </div>
-              <div class="g-col-6 g-col-md-4">
-                <div class="middle-column">
-                  <div id="box7">
-               
-                      <p>For Admin</p>
-
-                      <label for="userName"></label>
-                    
-                      <input type="text" name="userName" id="userAdmin" required placeholder="Email">
-                      
-                      <label for="password"></label>
-                      <br>
-                      <input type="password" name="password" id="passwordAdmin" placeholder="password" minlength="8" required>
-                      <br>
-                      <a href="admin.html" class="btn btn-primary" style="margin-top: 10px; margin-left: 10px; color:goldenrod;">Sign In</a>
-                  </div>
-              </div>
+            <form class="login-form" action="./" method="POST">
+            <div class="login-form__logo-container">
+                <img class="login-form__logo" src="../images/chalkboard-logos_white.png" alt="Logo">
             </div>
+            <div class="login-form__content">
+                <div class="login-form__header">Login to your account</div>
+                <input class="login-form__input" type="text" name="dc_username" placeholder="Username">
+                <input class="login-form__input" type="password" name="dc_username" placeholder="Password">
+                <button class="login-form__button" type="submit" style="margin-bottom: 20px;">Login</button>
+                <a class="login-form__button" href="studentPage.html" style="margin-top: 10px; text-align: center; color:white;">Student</a>
+                <a class="login-form__button" href="instructor.html" style="margin-top: 10px; text-align: center; color: white;">Teacher</a>
+                <a class="login-form__button" href="admin.html" style="margin-top: 40px; text-align: center; color: white;">Admin</a>
+                <div class="login-form__links">
+                    <a class="login-form__link" href="signup.html">Sign up here</a>
+                </div>
+            </div>
+        </form>
+
           </div>
-          </div>
-                <h2 style="text-align: center; margin-right: 500px;">Sign Up</h2>
-                <a href="signup.html" class="btn btn-primary" style="margin-top: 40px; margin-left: 70px; color: goldenrod;">Go To Sign Up Page</a>
-          </section>
-      </section>
+        </div>
 
       <!-- ****************  WORK EXPERIENCE  ******************** -->
       <section class="work-experience">
         <div class="content-wrap item-details divider">
-          <img src="images/teaching.jpeg" alt="teacher">
+          <img src="../images/teaching.jpeg" alt="teacher">
           <h2 style="margin-top: 20px;">About</h2>
             <p>to chalkboard! Here we Teach, Learn and Grow together</p>
           <p>Since this pandemic, we wanted to create a platform where learning process can be easier for both teacher an students</p>

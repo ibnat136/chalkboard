@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
 
 if(process.env.NODE_ENV!=='production'){
     require('dotenv').config()
 }
+=======
+const express = require('express')
+const app = express()
+const expressLayouts = require('express-ejs-layouts')
+const path = require ('path');
+>>>>>>> 5b1765e9faab021117cba5ff25e7b5945f078cb1
 
 const express= require('express')
 const app= express()
@@ -35,12 +42,25 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
+
 const { dirname } = require('path');
 const path = require('path');
 
+
+app.set('view engine', 'ejs')
+app.set('views',path.join(__dirname + '/views'));
+app.set('layout', 'layouts/layouts')
+app.use(expressLayouts)
+app.use(express.static('public'))
+
 app.use(express.static(path.join(__dirname,'./static')))
 
+<<<<<<< HEAD
 app.get('/',checkNotAuthenticated,(req,res)=>{
+=======
+
+app.get('/',(req,res)=>{
+>>>>>>> 5b1765e9faab021117cba5ff25e7b5945f078cb1
     res.render('page/index.ejs')
 })
 
@@ -59,6 +79,7 @@ app.post('/', checkNotAuthenticated, passport.authenticate('local', {
   app.get('/signup',checkNotAuthenticated, (req,res)=>{
     res.render('page/signup.ejs')
 })
+<<<<<<< HEAD
 
 
 
@@ -105,3 +126,6 @@ function checkAuthenticated(req, res, next) {
   }
 
 app.listen(3002)
+=======
+app.listen(3002);
+>>>>>>> 5b1765e9faab021117cba5ff25e7b5945f078cb1

@@ -23,15 +23,15 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
-<<<<<<< HEAD
+
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "passport": "^0.5.0",
-    "passport-local": "^1.0.0"
-=======
+    "passport-local": "^1.0.0",
+
     "mongoose": "^6.0.14"
->>>>>>> 5b1765e9faab021117cba5ff25e7b5945f078cb1
+
   },
   "devDependencies": {
     "dotenv": "^10.0.0",

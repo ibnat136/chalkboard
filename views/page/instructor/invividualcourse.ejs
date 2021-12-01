@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 1</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Caveat|Montserrat:400,600&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../css/styles4.css">
+  </head>
+  <body>
+    <main>
+      <!-- ***************  ABOUT / PROFILE  **************** -->
+      <header>
+        <div class="content-wrap">
+          <a href="instructor.html"><img src="../images/chalkboard-logos_transparent.png" alt="chalk board logo" class="logo"></a>
+            <h1>
+               Welcome to Course 1
+            </h1>  
+            <h3>Course Number:<span ></span></h3>
+            <h3>Course Discription:</h3>
+            <p>This is Course 1. This class contains the materials such as....</p>
+            <div class="buttons content-wrap">
+            <button type="button" value="delete Course"style="position:static; text-align: center; color:white; display: inline-block;" class="courses" onclick="myFunction()">Delete This Course</button>
+            <a  href="assignment.html" style="position:static; text-align: center; color:white; display: inline-block;" class="courses">Add assignment</a>
+            <a  href="submissions.html" style="position:static; text-align: center; color:white; display: inline-block; margin-top: 10px;" class="courses">Submissions</a>
+            </div>
+        </div>
+      </header>
+
+
+      <!-- ************ PROJECTS / PORTFOLIO  ************** -->
+      <section class="projects">
+        <div class="content-wrap divider">
+          <h2 style="text-align: center;">Student:</h2>
+          <div style="overflow-x:auto;">
+            <table>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+              </tr>
+              
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ****************  WORK EXPERIENCE  ******************** -->
+      <section class="work-experience">
+        <div class="content-wrap item-details divider">
+          <h2 style="text-align: center;">Instructors</h2>
+          <div class="content-wrap">
+            <li>Instructor 1 <button type="button"  value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
+            <li>Instructor 3 <button type="button"  value="delete Course" onclick="removeInstructor()">Remove Instructor</button></li>
+        </ul>
+      </div>
+      <ul class="contact-list">
+        <div class="buttons">
+        <button type="button"  value="LeaveCourse" class="courses" onclick="myFunction()">Leave This Course</button>
+      </div>
+            </div>
+          </section>
+
+      <footer>
+        <div class="content-wrap">
+          <h2>Let's Keep in Touch!</h2>
+
+          <!-- Social media and contact links. Add or remove any networks. -->
+          <ul class="contact-list">
+            <li><a href="#">Email us</a></li>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Twitter</a></li>
+            <li><a href="#" target="_blank">LinkedIn</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+    <script>
+      function myFunction() {
+        alert("Successful!");
+      }
+      function removeInstructor() {
+        alert("Intructor being removed");
+      }
+      </script>
+  </body>
+</html>

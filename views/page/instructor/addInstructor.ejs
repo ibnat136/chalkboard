@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Sign Up</title>
+
+    <link rel="stylesheet" href="../css/styles3.css">
+
+<body>
+    <main>
+        <header>
+          <div class="content-wrap">
+            <img src="../images/chalkboard-logos_transparent.png" alt="chalkboard logo" class="logo">
+              <h1 style="text-align: center;">Create Your Class</h1>
+<form method="POST" action="#">
+    <div class="signup-form">
+       <label for="userEmail" style="margin-right: 20px;">First name</label>
+       <input type="text" id="userEmail" name="userEmail" required>
+    </div>
+
+    <div class="signup-form">
+       <label for="userPassword" style="margin-right: 10px;">Last Name</label>
+       <input type="text" id="userPassword" name="userPassword" required>
+    </div>
+
+    <div class="signup-form">
+       <label style="margin-right: 20px;">Course Number</label>
+  <input type="text">
+    </div>
+
+  <input type="submit" value="Add Instructor" style="margin-left: 130px; padding:10px 10px; background-color: #2F3061; color: white; text-align: center;" onclick="myFunction()">
+  </form>
+ 
+          </div>
+        </header>
+        <footer>
+          <div class="content-wrap">
+            <h2>Let's Keep in Touch!</h2>
+  
+            <!-- Social media and contact links. Add or remove any networks. -->
+            <ul class="contact-list">
+              <li><a href="#">Email us</a></li>
+              <li><a href="#" target="_blank">Facebook</a></li>
+              <li><a href="#" target="_blank">Twitter</a></li>
+              <li><a href="#" target="_blank">LinkedIn</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+      <script>
+        function myFunction() {
+          alert("Successful!");
+        }
+        </script>
+</body>
+</html>

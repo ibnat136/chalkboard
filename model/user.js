@@ -15,10 +15,10 @@ const chalkSchema = new Schema ({
         type: String,
         required: true
     },
-    usertype: {
-        type: String,
-        required: true,
-    }
+    // usertype: {
+    //     type: String,
+    //     required: true,
+    // }
 },
     { collection: 'users' },
     {timestamps: true}

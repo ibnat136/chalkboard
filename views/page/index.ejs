@@ -19,20 +19,20 @@
           <!-- Project 1 -->
           <div class="project-item content-wrap divider">
 
-            <form class="login-form" action="/" method="POST">
+            <form class="login-form" id="login" action="/" method="POST">
             <div class="login-form__logo-container">
                 <img class="login-form__logo" src="./image/chalkboard-logos_white.png" alt="Logo">
             </div>
             <div class="login-form__content">
                 <div class="login-form__header">Log in to your account</div>
-                <input class="login-form__input" type="email" name="userEmail" id="userEmail" placeholder="Username">
-                <input class="login-form__input" type="password" name="userPassword" id="userPassword" placeholder="Password">
+                <input class="login-form__input" type="email" name="userEmail" id="userEmail" placeholder="Username" autocomplete="off">
+                <input class="login-form__input" type="password" name="userPassword" id="userPassword" placeholder="Password" autocomplete="off">
                 <button class="login-form__button" type="submit" style="margin-bottom: 20px;">Login</button>
 
 
                 <a class="login-form__button" href="studentPage.html" style="margin-top: 10px; text-align: center; color:white;">Student</a>
                 <a class="login-form__button" href="instructor.html" style="margin-top: 10px; text-align: center; color: white;">Teacher</a>
-                <a class="login-form__button" href="admin.html" style="margin-top: 40px; text-align: center; color: white;">Admin</a>
+                <a class="login-form__button" id="submit" href="admin.html" style="margin-top: 40px; text-align: center; color: white;">Admin</a>
                 <div class="login-form__links">
                     <a class="login-form__link" href="/signup">Sign up here</a>
                 </div>
@@ -86,5 +86,36 @@
         </div>
       </footer>
     </main>
+
+    <script>
+			const form = document.getElementById('login')
+			form.addEventListener('submit', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const username = document.getElementById('userEmail').value
+				const password = document.getElementById('userPassword').value
+
+				const result = await fetch('/', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						userEmail,
+						userPassword
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
+		</script>
   </body>
 </html>

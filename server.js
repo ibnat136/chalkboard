@@ -25,13 +25,13 @@ mongoose.connect(DBurl, {
   app.listen(8080)})
 .catch((err) => console.log(err))
 
-const initializePassport= require('./passport-config')
-initializePassport(passport, 
-    userEmail=> users.find(user=> user.userEmail==userEmail),
-    id=>users.find(user=> user.id==id)
-)
+// const initializePassport= require('./passport-config')
+// initializePassport(passport, 
+//     userEmail=> users.find(user=> user.userEmail==userEmail),
+//     id=>users.find(user=> user.id==id)
+// )
 
-const users=[]
+// const users=[]
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -42,9 +42,9 @@ app.use(session({
   saveUninitialized: false
 }))
 
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(methodOverride('_method'))
+// app.use(passport.initialize())
+// app.use(passport.session())
+// app.use(methodOverride('_method'))
 
 const { dirname } = require('path');
 const path = require('path');
@@ -53,45 +53,64 @@ const { isBigInt64Array } = require('util/types')
 
 app.use(express.static(path.join(__dirname,'./static')))
 
-app.get('/',checkNotAuthenticated,(req,res)=>{
+app.get('/',(req,res)=>{
     res.render('page/index.ejs')
+   
 })
 
-app.get('/student',checkAuthenticated,(req,res)=>{
+app.get('/student',(req,res)=>{
     res.render('page/studentPage.ejs')
 })
 
-app.post('/', checkNotAuthenticated, passport.authenticate('local', {
-    successRedirect: '/student',
-    failureRedirect: '/',
-    failureFlash: true
-  }))
-  
+// app.post('/', User.authenticate('local', {
+//     successRedirect: '/student',
+//     failureRedirect: '/',
+//     failureFlash: true
+//   }))
 
 
-  app.get('/signup',checkNotAuthenticated, (req,res)=>{
-    res.render('page/signup.ejs')
+app.post('/',async(req,res)=>{
+  res.json({status:'ok', data: 'COMING SOON'})
+
+  const { userEmail, userPassword } = req.body
+	const user = await User.findOne({ userEmail,userPassword }).lean()
+ 
 })
 
-app.post('/signup',checkNotAuthenticated, async(req,res)=>{
+
+  app.get('/signup', (req,res)=>{
+    res.render('page/signup.ejs')
+})
+// checkNotAuthenticated,
+app.post('/signup', async(req,res)=>{
+  
+  const{name,userEmail, userPassword:plainTestPassword}=req.body
+  const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
     try{
-        const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
-        users.push({
-        id: Date.now().toString(),
-        name: req.body.name,
-        userEmail: req.body.userEmail,
-        userPassword: hashedPassword,
-        school: req.body.school,
-        dob: req.body.dateToSend
+        
+        // users.push
+        const info= await User.create({
+        // id: Date.now().toString(),
+        name:name,
+        email:userEmail,
+        password:hashedPassword,
+      
+
+        // school,
+        // dob: req.body.dateToSend
 
         })
+        // console.log(info)
         res.redirect('/')
+        console.log('user created successful: ', info)
         
-    }catch{
-        res.redirect('/signup')
+    }catch(error){
+      console.log(error)
+      return res.json({status:'error', error})
+      res.redirect('/signup')
 
     }
-    console.log(users)
+    
 
 })
 
@@ -100,20 +119,20 @@ app.delete('/logout', (req, res) => {
     res.redirect('/')
   })
 
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return next()
-    }
+// function checkAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) {
+//       return next()
+//     }
   
-    res.redirect('/')
-  }
+//     res.redirect('/')
+//   }
 
-  function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-      return res.redirect('/student')
-    }
-    next()
-  }
+  // function checkNotAuthenticated(req, res, next) {
+  //   if (req.isAuthenticated()) {
+  //     return res.redirect('/student')
+  //   }
+  //   next()
+  // }
 
 app.listen(3002, () =>{
   console.log("App listening on port"+PORT);

@@ -78,6 +78,7 @@ app.post('/signup',checkNotAuthenticated, async(req,res)=>{
         const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
         users.push({
         id: Date.now().toString(),
+        name: req.body.name,
         userEmail: req.body.userEmail,
         userPassword: hashedPassword,
         school: req.body.school,

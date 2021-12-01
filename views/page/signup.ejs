@@ -11,6 +11,10 @@
            <a href="index.html"><img src="./image/chalkboard-logos_transparent.png" alt="chalkboard logo" class="logo"></a>
               <h1 style="text-align: center;">Join ChalkBoard Today</h1>
 <form method="POST" action="/signup">
+  <div class="signup-form">
+    <label for="name" style="margin-right: 20px;">Name</label>
+    <input type="text" id="name" name="name" required placeholder="First Name Last Name">
+ </div>
     <div class="signup-form">
        <label for="userEmail" style="margin-right: 20px;">Email</label>
        <input type="email" id="userEmail" name="userEmail" required placeholder="name@domain.com" pattern="[a-zA-Z0-9-_\.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*">

@@ -1,5 +1,4 @@
 
-
 if(process.env.NODE_ENV!=='production'){
     require('dotenv').config()
 }
@@ -12,8 +11,19 @@ const flash=require('express-flash')
 const session=require('express-session')
 const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3002;
+const mongoose = require('mongoose')
+const User = require('./model/user');
 
+const DBurl= 'mongodb+srv://mongo:jVooNwtFztcmAQTo@cluster0.ipmot.mongodb.net/chalkUser?retryWrites=true&w=majority';
+mongoose.connect(DBurl, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true
+})
 
+.then((result) => {
+  console.log('connected to db');
+  app.listen(8080)})
+.catch((err) => console.log(err))
 
 const initializePassport= require('./passport-config')
 initializePassport(passport, 
@@ -38,6 +48,8 @@ app.use(methodOverride('_method'))
 
 const { dirname } = require('path');
 const path = require('path');
+const { Mongoose } = require('mongoose')
+const { isBigInt64Array } = require('util/types')
 
 app.use(express.static(path.join(__dirname,'./static')))
 
@@ -60,9 +72,6 @@ app.post('/', checkNotAuthenticated, passport.authenticate('local', {
   app.get('/signup',checkNotAuthenticated, (req,res)=>{
     res.render('page/signup.ejs')
 })
-
-
-
 
 app.post('/signup',checkNotAuthenticated, async(req,res)=>{
     try{

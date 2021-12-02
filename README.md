@@ -31,6 +31,11 @@ In the wireframe there were some features that we were mising such as leave opti
 
 For delivarable 2 me and my team mate add more responsiveness with css and also we used bootstrap. I also made sure that all the pages are linked and every button is showing it's purpose on the page. This delivarable helped to learn more about bootstrap. For delivarable 2 we used visual studio.
 
+For delivarable 3 I have created the database made sure that everything is working properly with this database. 
+I have also try to deploy the website hoever in the beginning I facing some issue with it however after debugging a lot we finally figure out the error and it ran successfully. I ahve also took the 
+feedback from previous delivarable and fix the changes according to that such fixed some of the responsiveness and added some of the missing 
+requirements of the delivarable.
+
 ### Welcome page view
 ![Sign View](Index.png)
 

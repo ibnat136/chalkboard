@@ -13,6 +13,9 @@ const methodOverride = require('method-override')
 const PORT = process.env.PORT || 3002;
 const mongoose = require('mongoose')
 const User = require('./model/user');
+const jwt=require('jsonwebtoken')
+
+const JWT_SECRET='kdvkbjkrejbjgn#%R%#^$#!!@#$%^&^rsenedjfkbgkjfvgbkjbrjfs'
 
 const DBurl= 'mongodb+srv://mongo:jVooNwtFztcmAQTo@cluster0.ipmot.mongodb.net/chalkUser?retryWrites=true&w=majority';
 mongoose.connect(DBurl, { 
@@ -49,7 +52,7 @@ app.use(session({
 const { dirname } = require('path');
 const path = require('path');
 const { Mongoose } = require('mongoose')
-const { isBigInt64Array } = require('util/types')
+// const { isBigInt64Array } = require('util/types')
 
 app.use(express.static(path.join(__dirname,'./static')))
 
@@ -68,14 +71,68 @@ app.get('/student',(req,res)=>{
 //     failureFlash: true
 //   }))
 
+app.post('/', function (req, res) {
+  User
+    .findOne({
+      email: req.body.userEmail,
+      // password: req.body.userPassword
+    })
+    .exec(function (err, result) {
+      if(result) { // auth was successful
+        req.session.user = result; // so writing user document to session
+        return res.redirect('/student'); // redirecting user to interface
+      }
 
-app.post('/',async(req,res)=>{
-  res.json({status:'ok', data: 'COMING SOON'})
+      // auth not successful, because result is null
+      res.redirect('/signup'); // redirect to login page
+  });
+});
 
-  const { userEmail, userPassword } = req.body
-	const user = await User.findOne({ userEmail,userPassword }).lean()
+// app.post('/',async(req,res)=>{
+
+//   const { userEmail, userPassword} = req.body
+//   const user = await User.findOne({ mail: req.body.userEmail,
+//     password: req.body.userPassword })
+//   if (user) {
+   
+//    res.redirect('/student')
+// }
+
+//   else{res.redirect('/signup')}
+
+
+// })
+
+
+
+// app.post('/',async(req,res)=>{
+  
+
+//   const { userEmail, userPassword} = req.body
+// 	const user = await User.findOne({ userEmail }).lean()
+
+// 	if (!user) {
+// 		return res.json({ status: 'error', error: 'Invalid username/password' })
+// 	}
+
+  
+// 	if (await bcrypt.compare(req.body.userPassword, user.password)) {
+// 		// the username, password combination is successful
+
+// 		const token = jwt.sign(
+// 			{
+// 				id: user._id,
+// 				email: user.email
+// 			},
+// 			JWT_SECRET
+// 		)
+
+// 		return res.json({ status: 'ok', data: token })
+// 	}
+
+// 	res.json({ status: 'error', error: 'Invalid username/password' })
  
-})
+// })
 
 
   app.get('/signup', (req,res)=>{

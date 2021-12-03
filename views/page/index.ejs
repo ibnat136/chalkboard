@@ -27,23 +27,21 @@
                 <div class="login-form__header">Log in to your account</div>
                 <input class="login-form__input" type="email" name="userEmail" id="userEmail" placeholder="Username" autocomplete="off">
                 <input class="login-form__input" type="password" name="userPassword" id="userPassword" placeholder="Password" autocomplete="off">
+                <input class="login-form__input" type="role" name="role" id="role" placeholder="Type Student or Teacher or Admin" autocomplete="off">
+                <div class="login-form__header">First time user must sign up first!!</div>
                 <button class="login-form__button" type="submit" style="margin-bottom: 20px;">Login</button>
 
 
-                <a class="login-form__button" href="/student" style="margin-top: 10px; text-align: center; color:white;">Student</a>
+                <!-- <a class="login-form__button" href="/student" style="margin-top: 10px; text-align: center; color:white;">Student</a>
                 <a class="login-form__button" href="instructor.html" style="margin-top: 10px; text-align: center; color: white;">Teacher</a>
-                <a class="login-form__button" id="submit" href="/admin" style="margin-top: 40px; text-align: center; color: white;">Admin</a>
+                <a class="login-form__button" id="submit" href="/admin" style="margin-top: 40px; text-align: center; color: white;">Admin</a> -->
                 <div class="login-form__links">
                     <a class="login-form__link" href="/signup">Sign up here</a>
                 </div>
             </div>
         </form>
 
-        <% if (messages.error){ %>
-          <%=messages.error %>
-        
-        <% } %>
-
+      
           </div>
         </div>
 
@@ -87,7 +85,7 @@
       </footer>
     </main>
 
-    <script>
+    <!-- <script>
 			const form = document.getElementById('login')
 			form.addEventListener('submit', login)
 
@@ -116,6 +114,6 @@
 					alert(result.error)
 				}
 			}
-		</script>
+		</script> -->
   </body>
 </html>

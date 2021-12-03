@@ -69,6 +69,11 @@ app.get('/instructor',(req,res)=>{
   res.render('page/instructor.ejs')
 })
 
+app.get('/admin',(req,res)=>{
+  res.render('page/admin.ejs')
+}) 
+
+
 app.get('/admin/studentdb', (req, res) => {
   User.find({}, function(err, logins) {
       res.render('page/admin/studentdb.ejs', {
@@ -84,21 +89,73 @@ app.get('/admin/studentdb', (req, res) => {
 //   }))
 
 app.post('/', function (req, res) {
+  if (req.body.role==='student'){
   User
     .findOne({
       email: req.body.userEmail,
+      password:req.body.userPassword
+      
+      
       // password: req.body.userPassword
     })
     .exec(function (err, result) {
       if(result) { // auth was successful
         req.session.user = result; // so writing user document to session
+       
         return res.redirect('/student'); // redirecting user to interface
       }
 
       // auth not successful, because result is null
       res.redirect('/signup'); // redirect to login page
   });
+}
+
+else if (req.body.role==='teacher'){
+  User
+    .findOne({
+      email: req.body.userEmail,
+      password:req.body.userPassword
+     
+      // password: req.body.userPassword
+    })
+    .exec(function (err, result) {
+      if(result) { // auth was successful
+        req.session.user = result; // so writing user document to session
+       
+        return res.redirect('/instructor'); // redirecting user to interface
+      }
+
+      // auth not successful, because result is null
+      res.redirect('/signup'); // redirect to login page
+  });
+}
+
+else if (req.body.role==='admin'){
+  User
+    .findOne({
+      email: req.body.userEmail,
+      password:req.body.userPassword
+     
+      // password: req.body.userPassword
+    })
+    .exec(function (err, result) {
+      if(result) { // auth was successful
+        req.session.user = result; // so writing user document to session
+       
+        return res.redirect('/admin'); // redirecting user to interface
+      }
+
+      // auth not successful, because result is null
+      res.redirect('/signup'); // redirect to login page
+  });
+}
+else {res.redirect('/signup');}
+
 });
+
+app.post('/student',function (req, res){
+  res.redirect('/')
+})
 
 // app.post('/',async(req,res)=>{
 
@@ -117,34 +174,34 @@ app.post('/', function (req, res) {
 
 
 
-app.post('/',async(req,res)=>{
+// app.post('/',async(req,res)=>{
   
 
-  const { userEmail, userPassword} = req.body
-	const user = await User.findOne({ userEmail }).lean()
+//   const { userEmail, userPassword} = req.body
+// 	const user = await User.findOne({ userEmail }).lean()
 
-	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
-	}
+// 	if (!user) {
+// 		return res.json({ status: 'error', error: 'Invalid username/password' })
+// 	}
 
   
-	if (await bcrypt.compare(req.body.userPassword, user.password)) {
-		// the username, password combination is successful
+// 	if (await bcrypt.compare(req.body.userPassword, user.password)) {
+// 		// the username, password combination is successful
 
-		const token = jwt.sign(
-			{
-				id: user._id,
-				email: user.email
-			},
-			JWT_SECRET
-		)
+// 		const token = jwt.sign(
+// 			{
+// 				id: user._id,
+// 				email: user.email
+// 			},
+// 			JWT_SECRET
+// 		)
 
-		return res.json({ status: 'ok', data: token })
-	}
+// 		return res.json({ status: 'ok', data: token })
+// 	}
 
-	res.json({ status: 'error', error: 'Invalid username/password' })
+// 	res.json({ status: 'error', error: 'Invalid username/password' })
  
-})
+// })
 
 
   app.get('/signup', (req,res)=>{
@@ -169,8 +226,8 @@ app.get('/admin/instructordb', (req,res)=>{
 // checkNotAuthenticated,
 app.post('/signup', async(req,res)=>{
   
-  const{name,userEmail, userPassword:plainTestPassword}=req.body
-  const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
+  const{name,userEmail, userPassword,role}=req.body
+  // const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
     try{
         
         // users.push
@@ -178,7 +235,8 @@ app.post('/signup', async(req,res)=>{
         // id: Date.now().toString(),
         name:name,
         email:userEmail,
-        password:hashedPassword,
+        password:userPassword,
+        usertype:role,
       
 
         // school,

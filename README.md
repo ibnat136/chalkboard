@@ -11,6 +11,11 @@ Deliverable 2:
 
 In this deliverable we fixed whatever issues we had that our teacher pointed to us. Where one of the issue was that the pages were not connected to each other. I worked on the student's view so, I connected all the pages that where supposed to relate to the student view such as class view for student and also added the related pages for class such as  student work submission page. Also I have connected the instructor's view and the student's view into admin so the admin can view all the details of what the instructor or the student are doing with chalkboard. 
 
+Deliverable 3:
+
+For this deliverable I have worked on the user authentication. First I tried with passport and then I have done the authentication using node.js and MongoDB and I was successfully able to connect to the database. 
+
+
 ### Student View
 ![Student View](studentview.png)
 ### Student Course View

@@ -15,25 +15,25 @@
           <tr>
         
             <th></th>
+            <th>ID #</th>
             <th>Name</th>
-            <th>Courses enrolled in</th>
-            <th>Grade</th>
-            <th>GPA</th>
+            <th>Email</th>
+            <th>Role</th>
           </tr>
         </thead>
         <tbody>
-
+            <%loginlist.forEach(logins => {%>
           <tr>
             <th scope="row">1</th>
-            <td>John Doe</td>
-            <td>MAth 240</td>
-            <td>98</td>
-            <th>3.5</th>
+            <td><%- logins._id %></td>
+            <td><%-logins.name%></td>
+            <td><%-logins.email%></td>
+            <td><%-logins.usertype%></td>
           </tr>
              
           <tr>
            
-
+          <%})%>
         </tbody>
       </table>
 </body>

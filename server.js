@@ -74,9 +74,9 @@ app.get('/admin',(req,res)=>{
 }) 
 
 
-app.get('/admin/studentdb', (req, res) => {
+app.get('/admin/logindb', (req, res) => {
   User.find({}, function(err, logins) {
-      res.render('page/admin/studentdb.ejs', {
+      res.render('page/admin/login.ejs', {
           loginlist: logins
       })
   })

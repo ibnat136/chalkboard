@@ -65,6 +65,18 @@ app.get('/student',(req,res)=>{
     res.render('page/studentPage.ejs')
 })
 
+app.get('/instructor',(req,res)=>{
+  res.render('page/instructor.ejs')
+})
+
+app.get('/admin/studentdb', (req, res) => {
+  User.find({}, function(err, logins) {
+      res.render('page/admin/studentdb.ejs', {
+          loginlist: logins
+      })
+  })
+}) 
+
 // app.post('/', User.authenticate('local', {
 //     successRedirect: '/student',
 //     failureRedirect: '/',
@@ -105,39 +117,55 @@ app.post('/', function (req, res) {
 
 
 
-// app.post('/',async(req,res)=>{
+app.post('/',async(req,res)=>{
   
 
-//   const { userEmail, userPassword} = req.body
-// 	const user = await User.findOne({ userEmail }).lean()
+  const { userEmail, userPassword} = req.body
+	const user = await User.findOne({ userEmail }).lean()
 
-// 	if (!user) {
-// 		return res.json({ status: 'error', error: 'Invalid username/password' })
-// 	}
+	if (!user) {
+		return res.json({ status: 'error', error: 'Invalid username/password' })
+	}
 
   
-// 	if (await bcrypt.compare(req.body.userPassword, user.password)) {
-// 		// the username, password combination is successful
+	if (await bcrypt.compare(req.body.userPassword, user.password)) {
+		// the username, password combination is successful
 
-// 		const token = jwt.sign(
-// 			{
-// 				id: user._id,
-// 				email: user.email
-// 			},
-// 			JWT_SECRET
-// 		)
+		const token = jwt.sign(
+			{
+				id: user._id,
+				email: user.email
+			},
+			JWT_SECRET
+		)
 
-// 		return res.json({ status: 'ok', data: token })
-// 	}
+		return res.json({ status: 'ok', data: token })
+	}
 
-// 	res.json({ status: 'error', error: 'Invalid username/password' })
+	res.json({ status: 'error', error: 'Invalid username/password' })
  
-// })
+})
 
 
   app.get('/signup', (req,res)=>{
     res.render('page/signup.ejs')
 })
+
+app.get('/admin', (req,res)=>{
+  res.render('page/admin/admin.ejs')
+})
+
+app.get('/admin/coursedb', (req,res)=>{
+  res.render('page/admin/coursedb.ejs')
+})
+
+app.get('/admin/instructordb', (req,res)=>{
+  res.render('page/admin/instructordb.ejs')
+})
+// app.get('/admin/studentdb', (req,res)=>{
+//   res.render('page/admin/studentdb.ejs')
+// })
+
 // checkNotAuthenticated,
 app.post('/signup', async(req,res)=>{
   

@@ -34,7 +34,7 @@ For delivarable 2 me and my team mate add more responsiveness with css and also 
 For delivarable 3 I have created the database made sure that everything is working properly with this database. 
 I have also try to deploy the website hoever in the beginning I facing some issue with it however after debugging a lot we finally figure out the error and it ran successfully. I ahve also took the 
 feedback from previous delivarable and fix the changes according to that such fixed some of the responsiveness and added some of the missing 
-requirements of the delivarable.
+requirements of the delivarable. I have also added some ejs code to admin page to bring 
 
 ### Welcome page view
 ![Sign View](Index.png)

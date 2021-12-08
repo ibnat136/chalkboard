@@ -25,7 +25,7 @@ mongoose.connect(DBurl, {
 
 .then((result) => {
   console.log('connected to db');
-  app.listen(8080)})
+  c})
 .catch((err) => console.log(err))
 
 // const initializePassport= require('./passport-config')
@@ -202,7 +202,6 @@ app.post('/student',function (req, res){
 // 	res.json({ status: 'error', error: 'Invalid username/password' })
  
 // })
-
 
   app.get('/signup', (req,res)=>{
     res.render('page/signup.ejs')

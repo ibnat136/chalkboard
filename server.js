@@ -25,7 +25,7 @@ mongoose.connect(DBurl, {
 
 .then((result) => {
   console.log('connected to db');
-  c})
+  })
 .catch((err) => console.log(err))
 
 // const initializePassport= require('./passport-config')

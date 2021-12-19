@@ -75,22 +75,24 @@
       <table>
         <tr>
           <th>Assignment ID</th>
+          <th>Course ID</th>
           <th>Assignment Name</th>
           <th>Assignment Desc</th>
           <th>Questions</th>
           <th>Answers</th>          
           <th>Due Date</th>
-          <th>Course ID</th>
+          
         </tr>
         <% assignmentdata.forEach((assignment) => { %>
           <tr>
             <td><%= assignment._id%></td>
+            <td><%= assignment.courseid %></td>
             <td><%= assignment.assignmentname %></td>
             <td><%= assignment.assignmentdesc%></td>
             <td><%= assignment.questions %></td>
             <td><%= assignment.answers %></td>
             <td><%= assignment.duedate %></td>
-            <td><%= assignment.courseid %></td>
+            
           </tr>
         <% }) %>
       </table>
@@ -100,14 +102,14 @@
       <p>Database Table</p>
       <table>
         <tr>
-          <th>User Search Queries</th>
-          <th>Results</th>
+          <th>User Searches</th>
+          <!-- <th>Results</th> -->
         </tr>
 
         <% searchdata.forEach((search) => { %>
           <tr>
             <td><%= search.searchterm%></td>
-            <td><%= search.searchresult%> </td>
+            <!-- <td><%= search.searchresult%> </td> -->
           </tr>
         <% }) %>
 

@@ -10,6 +10,7 @@ const localstrategy = require('passport-local').Strategy;
 
 const Person = require("./database.js").PersonModel;
 const Course = require("./database.js").CourseModel;
+const Search = require("./database.js").SearchModel;
 app.use(express.static(__dirname + '/public'));
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -76,13 +77,17 @@ app.get('/', loggedin, (req, res) => {
 const adminrouter = require('./routes/adminpage')
 app.use('/', adminrouter)
 
-app.get('/searchresults', loggedin, (req, res) => {
-  Course.find({}, function(err, course){
-        res.render('searchresults.ejs',{
-          courselist: course
-          
-        })
-      });
+app.get('/searchresults', loggedin, async (req, res) => {
+  Course.find({ coursename: { $regex: '.*' + req.query.search + '.*' } }, (err, data) => {
+    const newsave = new Search({
+      searchterm: req.query.search,
+      searchresult: data
+    })
+    newsave.save((err, data) => {
+      if (err) return console.log(err);
+    });
+    res.render('searchresults.ejs', { data, search: req.query.search });
+  })
 })
 
 app.get('/login', loggedout, (req, res) => {

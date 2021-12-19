@@ -34,6 +34,8 @@
         <%= data.coursedesc %>
       </p>
     </main>
-    <button name="enroll" value="enroll" type="button" id="enrollbttn">Enroll</button>
+    <form action="/course/<%= data.id %>" method="POST">
+      <input type="submit" name=<%= data.id %> value="Enroll" type="button" id="enrollbttn">
+    </form>
   </body>
 </html>

@@ -17,7 +17,7 @@
     <img class="pic" src="/img/chalkboard-logos_white.png" alt="logo">
     <div id="searchbar">
       <form action="/searchresults" method="POST">
-      <img src="../img/magnifying-glass-ga7dc5fc0e_640.jpg" alt="A magnifying glass" width="25" />
+      <!-- <img src="../img/magnifying-glass-ga7dc5fc0e_640.jpg" alt="A magnifying glass" width="25" /> -->
         <input type="text" id="searchterm" name="searchterm" placeholder="Search for Courses" />
         <button type="submit" name="search" value="searchbutton">Search</button>
       </form>
@@ -25,81 +25,28 @@
 
     <main>
       <h1>
-        Search results for:
-        <span id="spansearchterm">Physics</span>
-      </h1>
-      <form>
-        <ul>
-          <li class="list">
-            <div class="classchoice">
-              <input type="checkbox" id="courseresult1" name="courseresult1" value="courseresult1" />
-              <label for="courseresult1">
-                Physics I
-                <span class="classdesc">Introductory course on basic physics.</span>
-              </label>
-            </div>
-
-            <div class="classchoice">
-              <input type="checkbox" id="courseresult2" name="courseresult2" value="courseresult2" />
-              <label for="courseresult2">
-                Astrophysics
-                <span class="classdesc">Course on the physics of space.</span>
-              </label>
-            </div>
-          </li>
-        </ul>
-        <button type="submit" class="submitbutton" value="enrolledcourses">Enroll</button>
-      </form>
-
+        <% if (data) { %> 
+          <h1>
+            Search results for:
+            <span id="spansearchterm"><%= search%></span>
+          </h1>
+            <ul class="list">
+              <% data.forEach((result) => { %>
+                <li class="classchoice">
+                  <p>
+                    <% let link = "/course/" + result.id %>
+                    <a href = <%= link %> >
+                    <%= result.coursename %> </a> - 
+                    <span class="classdesc">
+                    <% if(result.coursedesc.length > 90) var result = result.coursedesc.substring(0,90) + "...";%>
+                    <%= result %>
+                    </span>
+                  </p>
+                </li>
+              <% }) %>
+            </ul>
+        <% } %>
       <section class="project-item">
-       
-      
-        <h2>Available Courses:</h2>
-        <!-- <p>Click to view the details of the available courses.</p> -->
-        <table>
-          <thead>
-            <tr>
-              <th>Course Name</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%courselist.forEach(course => {%>
-
-            <tr>
-              <% if(course.coursename=='Math142'){%>
-                <td><a href="/course/61bad65a3e831b0e4f851ab7"> <%= course.coursename %></a></td>
-              <%}%>
-              <% if(course.coursename=='English'){%>
-                <td><a href="/course/61bab7c3a8e137dfff0f1432"> <%= course.coursename %></a></td>
-              <%}%>
-              <% if(course.coursename=='Math143'){%>
-                <td><a href="/course/61bad6ba3e831b0e4f851ac1"> <%= course.coursename %></a></td>
-              <%}%>
-              <% if(course.coursename=='English101'){%>
-                <td><a href="/course/61bad8bf3e60e526cf5d96b8"> <%= course.coursename %></a></td>
-              <%}%>
-            </tr>
-            <%})%>
-          </tbody>
-        </table>
-        <ul>
-          
-   
-            
-            
-            <!-- <li><a href="/course/61bad65a3e831b0e4f851ab7"></a></li>
-            <li><a href="/course/61bad6ba3e831b0e4f851ac1"></a></li> -->
-       
-        <!-- <a class="nav" href="\class211">CS 211</a>
-        <a class="nav" href="\math141">Math 141</a>
-        <a class="nav" href="\math142">Math 142</a> -->
-              
-             
-        </ul>
-        
-        
-
-        
       </section>
       
     </main>

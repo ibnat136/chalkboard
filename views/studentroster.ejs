@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<!--
-Name: Minjae Kim
-Date: 10.31.2021
-Course: CS 355
-This is the studentroster page of our website. It provides basic html layouts of what studentroster page will contain
--->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -20,49 +14,24 @@ This is the studentroster page of our website. It provides basic html layouts of
     </header>
     <img class="pic" src="/img/chalkboard-logos_white.png" alt="logo">
     <div class="center1">
-      <h1>Student Roster</h1>
-
-      <label for="course">Select course:</label>
-      <select name="course" id="course">
-        <option value="volvo">CS111</option>
-      </select>
-      <button type="button">View</button>
-
       <h2>
-        Displaying roster for course
         <span id="coursename"></span>
-        :
       </h2>
+      <div class="roster">
+        <h1>Student Roster</h1>
       <div class="roster">
         <table class="center">
           <tr>
-            <th>Last Name</th>
-            <th>First Name</th>
-          </tr>
-         
-          <% studentlist.forEach(students => {%>
-
-            <% if(students.accounttype=="Student"){%>
-          <tr>
-            
-            <td><%= students.fname%></td>
-            <td><%= students.lname%></td>
-          </tr>
-          <%}%>
-          <%})%>
-        
-          <!-- <tr>
-            <td>Johnson</td>
-            <td>Alex</td>
+            <th>Course ID</th>
+            <th>Student ID</th>
           </tr>
           <tr>
-            <td>Doe</td>
-            <td>John</td>
+            <% data.forEach((course) => { %>
+              <td><%= course.coursename%></td>
+              <td><%= course.students%></td>
+            </tr>
+            <% }) %>
           </tr>
-          <tr>
-            <td>Smith</td>
-            <td>Michael</td>
-          </tr> -->
         </table>
       </div>
     </div>

@@ -1,7 +1,4 @@
-// Name: Daniel Yoh
-// Date: 11.25.2022
-// Course: CS 355
-// This is for backend functionality of the admin page.
+
 const express = require('express')
 const router = express.Router()
 

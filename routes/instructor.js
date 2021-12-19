@@ -13,8 +13,7 @@ router.get('/createcourse', loggedin, instructorcheck, (req, res) => {
 })
 
 router.get('/editcourse', loggedin, instructorcheck, async (req, res) => {
-  const courselist = await Course.find({ creator: req.user.id })
-  const data = courselist
+  const data = await Course.find({ creator: req.user.id })
   res.render('editcourse.ejs', { data });
 })
 
@@ -35,14 +34,10 @@ router.get('/acceptreject', loggedin, instructorcheck, (req, res) => {
   })
 })
 
-router.get('/studentroster', loggedin, instructorcheck, (req, res) => {
-  Person.find({}, function(err, students){
-    res.render('studentroster.ejs',{
-      studentlist: students
-      
-    })
-  })
-  
+router.get('/studentroster', loggedin, instructorcheck, async (req, res) => {
+  const data = await Course.find({ creatorid: req.user.id });
+  console.log(data)
+  res.render('studentroster.ejs', { data });
 })
 
 router.get('/selectedcourse', loggedin, instructorcheck, (req, res) => {

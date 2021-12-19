@@ -55,24 +55,18 @@
           <th>Instructors</th>
           <th>Students</th>
         </tr>
+
         <% coursedata.forEach((course) => { %>
           <tr>
-            <td><%= course._id%></td>
-            <td><%= course.coursename %></td>
-            <td><%= course.creatorname%></td>
-            <% if(course.coursename=="English") {%>
-              <td>Alex Chen</td>
-              <td>test test</td>
-              <%}%>
-              <% if(course.coursename=="Math 142") {%>
-                <td>Adele Brogess</td>
-                <td>test test</td>
-                <%}%>
-                   <td></td>
-                   <td></td>
-            </tr>
+            <td><%= course._id %></td>
+            <td><%= course.coursename%></td>
+            <td> <%= course.creatorname%> </td>
+            <td><%= course.instructors %></td>
+            <td><%= course.students %></td>
+          </tr>
         <% }) %>
-    </table>
+
+      </table>
     </div>
 
 
@@ -107,14 +101,13 @@
       <table>
         <tr>
           <th>User Search Queries</th>
-          <!-- <th>Results</th> -->
+          <th>Results</th>
         </tr>
-        
 
         <% searchdata.forEach((search) => { %>
           <tr>
             <td><%= search.searchterm%></td>
-            <!-- <td> Not implemented yet </td> -->
+            <td><%= search.searchresult%> </td>
           </tr>
         <% }) %>
 

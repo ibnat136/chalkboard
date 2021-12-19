@@ -40,6 +40,7 @@ let Assignment = mongoose.model('Assignment', assignmentSchema);
 
 const searchSchema = new Schema({
   searchterm: { type: String, required: true },
+  searchresult: [String]
 })
 
 let Search = mongoose.model('Search', searchSchema);

@@ -1,281 +1,191 @@
+const express = require('express');
+const app = express();
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override');
+const mongoose = require('mongoose');
+const localstrategy = require('passport-local').Strategy;
 
-if(process.env.NODE_ENV!=='production'){
-    require('dotenv').config()
-}
-
-const express= require('express')
-const app= express()
-const bcrypt= require('bcrypt')
-const passport=require('passport')
-const flash=require('express-flash')
-const session=require('express-session')
-const methodOverride = require('method-override')
-const PORT = process.env.PORT || 3002;
-const mongoose = require('mongoose')
-const User = require('./model/user');
-const jwt=require('jsonwebtoken')
-
-const JWT_SECRET='kdvkbjkrejbjgn#%R%#^$#!!@#$%^&^rsenedjfkbgkjfvgbkjbrjfs'
-
-const DBurl= 'mongodb+srv://mongo:jVooNwtFztcmAQTo@cluster0.ipmot.mongodb.net/chalkUser?retryWrites=true&w=majority';
-mongoose.connect(DBurl, { 
-  useNewUrlParser: true, 
-  useUnifiedTopology: true
-})
-
-.then((result) => {
-  console.log('connected to db');
-  })
-.catch((err) => console.log(err))
-
-// const initializePassport= require('./passport-config')
-// initializePassport(passport, 
-//     userEmail=> users.find(user=> user.userEmail==userEmail),
-//     id=>users.find(user=> user.id==id)
-// )
-
-// const users=[]
-
-app.set('view-engine', 'ejs')
-app.use(express.urlencoded({ extended: false }))
-app.use(flash())
+const Person = require("./database.js").PersonModel;
+const Course = require("./database.js").CourseModel;
+app.use(express.static(__dirname + '/public'));
+app.set('view-engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
+app.use(flash());
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+ 
+  secret: "whydoesthiswork",
   resave: false,
   saveUninitialized: false
-}))
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'));
 
-// app.use(passport.initialize())
-// app.use(passport.session())
-// app.use(methodOverride('_method'))
-
-const { dirname } = require('path');
-const path = require('path');
-const { Mongoose } = require('mongoose')
-// const { isBigInt64Array } = require('util/types')
-
-app.use(express.static(path.join(__dirname,'./static')))
-
-app.get('/',(req,res)=>{
-    res.render('page/index.ejs')
-   
-})
-
-app.get('/student',(req,res)=>{
-    res.render('page/studentPage.ejs')
-})
-
-app.get('/instructor',(req,res)=>{
-  res.render('page/instructor.ejs')
-})
-
-app.get('/admin',(req,res)=>{
-  res.render('page/admin.ejs')
-}) 
-
-
-app.get('/admin/logindb', (req, res) => {
-  User.find({}, function(err, logins) {
-      res.render('page/admin/login.ejs', {
-          loginlist: logins
-      })
-  })
-}) 
-
-// app.post('/', User.authenticate('local', {
-//     successRedirect: '/student',
-//     failureRedirect: '/',
-//     failureFlash: true
-//   }))
-
-app.post('/', function (req, res) {
-  if (req.body.role==='student'){
-  User
-    .findOne({
-      email: req.body.userEmail,
-      password:req.body.userPassword
-      
-      
-      // password: req.body.userPassword
-    })
-    .exec(function (err, result) {
-      if(result) { // auth was successful
-        req.session.user = result; // so writing user document to session
-       
-        return res.redirect('/student'); // redirecting user to interface
-      }
-
-      // auth not successful, because result is null
-      res.redirect('/signup'); // redirect to login page
-  });
-}
-
-else if (req.body.role==='teacher'){
-  User
-    .findOne({
-      email: req.body.userEmail,
-      password:req.body.userPassword
-     
-      // password: req.body.userPassword
-    })
-    .exec(function (err, result) {
-      if(result) { // auth was successful
-        req.session.user = result; // so writing user document to session
-       
-        return res.redirect('/instructor'); // redirecting user to interface
-      }
-
-      // auth not successful, because result is null
-      res.redirect('/signup'); // redirect to login page
-  });
-}
-
-else if (req.body.role==='admin'){
-  User
-    .findOne({
-      email: req.body.userEmail,
-      password:req.body.userPassword
-     
-      // password: req.body.userPassword
-    })
-    .exec(function (err, result) {
-      if(result) { // auth was successful
-        req.session.user = result; // so writing user document to session
-       
-        return res.redirect('/admin'); // redirecting user to interface
-      }
-
-      // auth not successful, because result is null
-      res.redirect('/signup'); // redirect to login page
-  });
-}
-else {res.redirect('/signup');}
-
+passport.serializeUser((user, done) => {
+  done(null, user.id);
 });
 
-app.post('/student',function (req, res){
-  res.redirect('/')
+passport.deserializeUser((id, done) => {
+  Person.findById(id, (err, user) => {
+    done(err, user);
+  });
+});
+
+passport.use(new localstrategy({
+  usernameField: 'email',
+  passwordField: 'password',
+  passReqToCallback: true
+}, function(req, username, password, done) {
+  Person.findOne({ email: username }, function(err, user) {
+    if (err) return done(err);
+    if (!user) return done(null, false, { message: 'Account does not exist.' });
+    const usertype = req.body.accounttype;
+    console.log("user:", user, "usertype:", usertype);
+    if (usertype != user.accounttype) {
+      return done(null, false, { message: "Wrong account type." })
+    };
+    bcrypt.compare(password, user.password, function(err, res) {
+      if (err) return done(err);
+      if (res === false) return done(null, false, { message: 'Incorrect password.' });
+      return done(null, user);
+    });
+  });
+}));
+
+app.get('/', loggedin, (req, res) => {
+  if (req.user.accounttype == "Admin") res.redirect('/adminpage')
+  else res.render('index.ejs', { accounttype: req.user.accounttype });
+  
 })
 
-// app.post('/',async(req,res)=>{
-
-//   const { userEmail, userPassword} = req.body
-//   const user = await User.findOne({ mail: req.body.userEmail,
-//     password: req.body.userPassword })
-//   if (user) {
-   
-//    res.redirect('/student')
-// }
-
-//   else{res.redirect('/signup')}
-
-
+// app.get('/', loggedin, (req, res) => {
+//   if (req.user.accounttype == "Student"){
+//     Course.find({}, function(err,courses){
+//       res.render('views/index.ejs',{
+//         courselist:courses
+//       })
+//     })
+//   }
+//   else res.render('index.ejs', { accounttype: req.user.accounttype });
+  
 // })
 
+const adminrouter = require('./routes/adminpage')
+app.use('/', adminrouter)
 
-
-// app.post('/',async(req,res)=>{
-  
-
-//   const { userEmail, userPassword} = req.body
-// 	const user = await User.findOne({ userEmail }).lean()
-
-// 	if (!user) {
-// 		return res.json({ status: 'error', error: 'Invalid username/password' })
-// 	}
-
-  
-// 	if (await bcrypt.compare(req.body.userPassword, user.password)) {
-// 		// the username, password combination is successful
-
-// 		const token = jwt.sign(
-// 			{
-// 				id: user._id,
-// 				email: user.email
-// 			},
-// 			JWT_SECRET
-// 		)
-
-// 		return res.json({ status: 'ok', data: token })
-// 	}
-
-// 	res.json({ status: 'error', error: 'Invalid username/password' })
- 
-// })
-
-  app.get('/signup', (req,res)=>{
-    res.render('page/signup.ejs')
-})
-
-app.get('/admin', (req,res)=>{
-  res.render('page/admin/admin.ejs')
-})
-
-app.get('/admin/coursedb', (req,res)=>{
-  res.render('page/admin/coursedb.ejs')
-})
-
-app.get('/admin/instructordb', (req,res)=>{
-  res.render('page/admin/instructordb.ejs')
-})
-// app.get('/admin/studentdb', (req,res)=>{
-//   res.render('page/admin/studentdb.ejs')
-// })
-
-// checkNotAuthenticated,
-app.post('/signup', async(req,res)=>{
-  
-  const{name,userEmail, userPassword,role}=req.body
-  // const hashedPassword=await bcrypt.hash(req.body.userPassword,10)
-    try{
-        
-        // users.push
-        const info= await User.create({
-        // id: Date.now().toString(),
-        name:name,
-        email:userEmail,
-        password:userPassword,
-        usertype:role,
-      
-
-        // school,
-        // dob: req.body.dateToSend
-
+app.get('/searchresults', loggedin, (req, res) => {
+  Course.find({}, function(err, course){
+        res.render('searchresults.ejs',{
+          courselist: course
+          
         })
-        // console.log(info)
-        res.redirect('/')
-        console.log('user created successful: ', info)
-        
-    }catch(error){
-      console.log(error)
-      return res.json({status:'error', error})
-      res.redirect('/signup')
-
-    }
-    
-
+      });
 })
+
+app.get('/login', loggedout, (req, res) => {
+  res.render('login.ejs');
+})
+app.get('/class111', loggedin, (req, res) => {
+  res.render('cs111.ejs');
+})
+app.get('/class211', loggedin, (req, res) => {
+  res.render('cs211.ejs');
+})
+
+app.get('/math141', loggedin, (req, res) => {
+  res.render('math141.ejs');
+})
+app.get('/math142', loggedin, (req, res) => {
+  res.render('math142.ejs');
+})
+app.get('/class', loggedin, (req, res) => {
+  res.render('class.ejs');
+})
+app.get('/submission', loggedin, (req, res) => {
+  res.render('submission.ejs');
+})
+app.get('/signup', loggedout, (req, res) => {
+  res.render('signup.ejs');
+})
+
+
+
+
+
+// app.get('/',loggedin, (req,res) =>{
+//   Course.find({}, function(err, course){
+//     res.render('index.ejs',{
+//       courselist: course
+//     })
+//   })
+// })
+
+const instructorrouter = require('./routes/instructor')
+const instructorpostsrouter = require('./routes/instructorposts')
+const editcourserouter = require('./routes/editcourseroute')
+// const studentrouter = require('./routes/studentpage')
+// app.use('/', studentrouter)
+app.use('/', instructorrouter)
+app.use('/', instructorpostsrouter)
+app.use('/', editcourserouter)
+
+
+app.post('/signup', loggedout, async (req, res) => {
+  const exists = await Person.exists({ email: req.body.email });
+  if (exists) {
+    return res.send('This email is already in use.');
+  };
+  try {
+    const hashedpw = await bcrypt.hash(req.body.password, 10);
+    const newuser = new Person({
+      fname: req.body.firstname,
+      lname: req.body.lastname,
+      email: req.body.email,
+      password: hashedpw,
+      accounttype: req.body.accounttype
+    });
+    newuser.save((err, data) => {
+      if (err) return console.log(err);
+      console.log(newuser.fname + " saved to database");
+      console.log(data)
+    });
+    res.redirect('/login');
+  } catch {
+    res.redirect('/signup');
+  }
+})
+
+app.post('/login', loggedout, passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
 
 app.delete('/logout', (req, res) => {
-    req.logOut()
-    res.redirect('/')
-  })
+  req.logOut();
+  res.redirect('/login');
+})
 
-// function checkAuthenticated(req, res, next) {
-//     if (req.isAuthenticated()) {
-//       return next()
-//     }
-  
-//     res.redirect('/')
-//   }
+function loggedin(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 
-  // function checkNotAuthenticated(req, res, next) {
-  //   if (req.isAuthenticated()) {
-  //     return res.redirect('/student')
-  //   }
-  //   next()
-  // }
+function loggedout(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next();
+}
 
-app.listen(3002, () =>{
-  console.log("App listening on port"+PORT);
-});
+app.get('grading', (req,res)=>{
+  res.render('views/grading.ejs')
+})
+
+console.log("Connected to DB");
+app.listen(3002);

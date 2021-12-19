@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Name: Minjae Kim
+Date: 10.31.2021
+Course: CS 355
+This is the studentroster page of our website. It provides basic html layouts of what studentroster page will contain
+-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <link rel="stylesheet" href="../CSS/studentroster.css" />
+    <title>Student Roster</title>
+  </head>
+  <body>
+    <header>
+    <%- include('./partials/header') %>
+    </header>
+    <img class="pic" src="/img/chalkboard-logos_white.png" alt="logo">
+    <div class="center1">
+      <h1>Student Roster</h1>
+
+      <label for="course">Select course:</label>
+      <select name="course" id="course">
+        <option value="volvo">CS111</option>
+      </select>
+      <button type="button">View</button>
+
+      <h2>
+        Displaying roster for course
+        <span id="coursename"></span>
+        :
+      </h2>
+      <div class="roster">
+        <table class="center">
+          <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+          </tr>
+         
+          <% studentlist.forEach(students => {%>
+
+            <% if(students.accounttype=="Student"){%>
+          <tr>
+            
+            <td><%= students.fname%></td>
+            <td><%= students.lname%></td>
+          </tr>
+          <%}%>
+          <%})%>
+        
+          <!-- <tr>
+            <td>Johnson</td>
+            <td>Alex</td>
+          </tr>
+          <tr>
+            <td>Doe</td>
+            <td>John</td>
+          </tr>
+          <tr>
+            <td>Smith</td>
+            <td>Michael</td>
+          </tr> -->
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

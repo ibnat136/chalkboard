@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/acceptreject.css" />
+    <link rel="stylesheet" href="../CSS/header.css" />
+    <title>Admin Page</title>
+  </head>
+ 
+  <body>
+    <header>
+      <a href="/" id="logo">
+        <img href="../img/chalkboard-logos_transparent.png">
+      </a>
+      <label for="hamburger">&#9776;</label>
+      <input type="checkbox" id="hamburger" />
+      <ul id="headerbar">
+        <li><a href="/">Home</a></li>
+        <li><form action = "/logout?_method=DELETE" method="POST">
+        <button type = "submit" id="headerbttn">Log out </button></form></li>
+      </ul>
+    </header>
+    <img class="pic" src="/img/chalkboard-logos_white.png" alt="logo">
+    <div class="admintable">
+      <p>Users Table</p>
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>ID</th>
+          <th>Account Type</th>
+        </tr>
+        <% userdata.forEach((user) => { %>
+          <tr>
+            <td><%= user.fname%></td>
+            <td><%= user.lname %></td>
+            <td><%= user.email%></td>
+            <td><%= user._id %></td>
+            <td><%= user.accounttype %></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+
+    <div class="admintable">
+      <p>Courses Table</p>
+      <table>
+        <tr>
+          <th>Course ID</th>
+          <th>Course Name</th>
+          <th>Creator</th>
+          <th>Instructors</th>
+          <th>Students</th>
+        </tr>
+        <% coursedata.forEach((course) => { %>
+          <tr>
+            <td><%= course._id%></td>
+            <td><%= course.coursename %></td>
+            <td><%= course.creatorname%></td>
+            <% if(course.coursename=="English") {%>
+              <td>Alex Chen</td>
+              <td>test test</td>
+              <%}%>
+              <% if(course.coursename=="Math 142") {%>
+                <td>Adele Brogess</td>
+                <td>test test</td>
+                <%}%>
+                   <td></td>
+                   <td></td>
+            </tr>
+        <% }) %>
+    </table>
+    </div>
+
+
+    <div class="admintable">
+      <p>Assignments Table</p>
+      <table>
+        <tr>
+          <th>Assignment ID</th>
+          <th>Assignment Name</th>
+          <th>Assignment Desc</th>
+          <th>Questions</th>
+          <th>Answers</th>          
+          <th>Due Date</th>
+          <th>Course ID</th>
+        </tr>
+        <% assignmentdata.forEach((assignment) => { %>
+          <tr>
+            <td><%= assignment._id%></td>
+            <td><%= assignment.assignmentname %></td>
+            <td><%= assignment.assignmentdesc%></td>
+            <td><%= assignment.questions %></td>
+            <td><%= assignment.answers %></td>
+            <td><%= assignment.duedate %></td>
+            <td><%= assignment.courseid %></td>
+          </tr>
+        <% }) %>
+      </table>
+    </div>
+
+    <div class="admintable">
+      <p>Database Table</p>
+      <table>
+        <tr>
+          <th>User Search Queries</th>
+          <!-- <th>Results</th> -->
+        </tr>
+        
+
+        <% searchdata.forEach((search) => { %>
+          <tr>
+            <td><%= search.searchterm%></td>
+            <!-- <td> Not implemented yet </td> -->
+          </tr>
+        <% }) %>
+
+      </table>
+    </div>
+  </body>
+</html>

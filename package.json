@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/ibnat136/chalkboard.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/ibnat136/chalkboard/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/ibnat136/chalkboard#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",

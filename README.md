@@ -41,6 +41,8 @@ I have also try to deploy the website hoever in the beginning I facing some issu
 feedback from previous delivarable and fix the changes according to that such fixed some of the responsiveness and added some of the missing 
 requirements of the delivarable. I have also added some ejs code to admin page to bring 
 
+For the final project I did connected other loose ends connected everythign with the database. Instructor and Students page are connected with database. 
+
 ### Welcome page view
 ![Sign View](Index.png)
 

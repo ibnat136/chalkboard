@@ -19,13 +19,13 @@ For this deliverable I have worked on the user authentication. First I tried wit
 ### Student View
 ![Student View](images/studentview.png)
 ### Student Course View
-![Student course View](studentcourseview.png)
+![Student course View](images/studentcourseview.png)
 ### Student Class Work View
-![Student Class Work View](studentclassV.png)
+![Student Class Work View](images/studentclassV.png)
 ### Student Work Submission
-![Student Submission](studentsubm.png)
+![Student Submission](imgaes/studentsubm.png)
 ### Admin View
-![Admin View](adminview.png)
+![Admin View](images/adminview.png)
 
 ## Ibnat Nuha 
 I learned how to create sitemap and wireframe.By doing this I learned how important it is to have a visualization before we create our website, I have never drawn any wire frame before so the video helped me a lot to prepare for this assignment. I have also learned how to use markup in Read.me file. I have created site map for this assignment and part of the wire frame where I layout out the idea for home page of the website.
@@ -44,24 +44,24 @@ requirements of the delivarable. I have also added some ejs code to admin page t
 For the final project I did connected other loose ends connected everythign with the database. Instructor and Students page are connected with database. 
 
 ### Welcome page view
-![Sign View](Index.png)
+![Sign View](images/Index.png)
 
 ### Sign up Page
-![Sign up](SignUp.png)
+![Sign up](images/SignUp.png)
 
 ### Instructor Home Page
-![Sign up](Instructor.png)
+![Sign up](images/Instructor.png)
 
 ### Each Course Page
-![Sign up](EachCourse.png)
+![Sign up](images/EachCourse.png)
 
 ### All Student Submission
-![Sign up](AllStudentSubmission.png)
+![Sign up](images/AllStudentSubmission.png)
 
 ### Instructor assigning assignment to student
-![Sign up](AssignmentForStudents.png)
+![Sign up](images/AssignmentForStudents.png)
 
-![sitemap](sitemap.jpg)
-![Wireframe page 1](Wireframe1.jpg)
-![Wireframe page 2](Wireframe2.jpg)
+![sitemap](images/sitemap.jpg)
+![Wireframe page 1](images/Wireframe1.jpg)
+![Wireframe page 2](images/Wireframe2.jpg)
 

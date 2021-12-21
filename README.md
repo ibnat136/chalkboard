@@ -19,15 +19,15 @@ For the final part, I fixed user authentication and sessions, and fixed few loos
 
 
 ### Student View
-![Student View](images/studentview.png)
+![Student View](images/student.png)
 ### Student Course View
-![Student course View](images/studentcourseview.png)
+![Student course View](images/)
 ### Student Class Work View
-![Student Class Work View](images/studentclassV.png)
+![Student Class Work View](images/)
 ### Student Work Submission
-![Student Submission](imgaes/studentsubm.png)
+![Student Submission](imgaes/)
 ### Admin View
-![Admin View](images/adminview.png)
+![Admin View](images/)
 
 ## Ibnat Nuha 
 I learned how to create sitemap and wireframe.By doing this I learned how important it is to have a visualization before we create our website, I have never drawn any wire frame before so the video helped me a lot to prepare for this assignment. I have also learned how to use markup in Read.me file. I have created site map for this assignment and part of the wire frame where I layout out the idea for home page of the website.
@@ -46,22 +46,22 @@ requirements of the delivarable. I have also added some ejs code to admin page t
 For the final project I did connected other loose ends connected everythign with the database. Instructor and Students page are connected with database. 
 
 ### Welcome page view
-![Sign View](images/Index.png)
+![Sign View](images/)
 
 ### Sign up Page
-![Sign up](images/SignUp.png)
+![Sign up](images/)
 
 ### Instructor Home Page
-![Sign up](images/Instructor.png)
+![Sign up](images/)
 
 ### Each Course Page
-![Sign up](images/EachCourse.png)
+![Sign up](images/)
 
 ### All Student Submission
-![Sign up](images/AllStudentSubmission.png)
+![Sign up](images/)
 
 ### Instructor assigning assignment to student
-![Sign up](images/AssignmentForStudents.png)
+![Sign up](images/)
 
 ![sitemap](images/sitemap.jpg)
 ![Wireframe page 1](images/Wireframe1.jpg)

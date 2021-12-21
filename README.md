@@ -18,6 +18,12 @@ For this deliverable I have worked on the user authentication. First I tried wit
 For the final part, I fixed user authentication and sessions, and fixed few loose ends.
 
 
+### Welcome/ Login Page View
+![Sign View](images/login.png)
+
+### Sign up Page
+![Sign up](images/signin.png)
+
 ### Student View
 ![Student View](images/student.png)
 ### Student Course View
@@ -45,11 +51,7 @@ requirements of the delivarable. I have also added some ejs code to admin page t
 
 For the final project I did connected other loose ends connected everythign with the database. Instructor and Students page are connected with database. 
 
-### Welcome page view
-![Sign View](images/)
 
-### Sign up Page
-![Sign up](images/)
 
 ### Instructor Home Page
 ![Sign up](images/)

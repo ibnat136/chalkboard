@@ -15,6 +15,8 @@ Deliverable 3:
 
 For this deliverable I have worked on the user authentication. First I tried with passport and then I have done the authentication using node.js and MongoDB and I was successfully able to connect to the database. 
 
+For the final part, I fixed user authentication and sessions, and fixed few loose ends.
+
 
 ### Student View
 ![Student View](images/studentview.png)

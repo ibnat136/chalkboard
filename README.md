@@ -17,7 +17,7 @@ For this deliverable I have worked on the user authentication. First I tried wit
 
 
 ### Student View
-![Student View](studentview.png)
+![Student View](images/studentview.png)
 ### Student Course View
 ![Student course View](studentcourseview.png)
 ### Student Class Work View

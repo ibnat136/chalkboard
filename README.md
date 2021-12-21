@@ -27,11 +27,14 @@ For the final part, I fixed user authentication and sessions, and fixed few loos
 ### Student View
 ![Student View](images/student.png)
 ### Student Course View
-![Student course View](images/)
+![Student course View](images/course.png)
 ### Student Class Work View
-![Student Class Work View](images/)
-### Student Work Submission
-![Student Submission](imgaes/)
+![Student Class Work View](images/work.png)
+### Student Search Page
+![Student Submission](imgaes/search.png)
+### Available Course
+![Student Submission](imgaes/course1.png)
+
 ### Admin View
 ![Admin View](images/)
 

@@ -18,27 +18,7 @@ For this deliverable I have worked on the user authentication. First I tried wit
 For the final part, I fixed user authentication and sessions, and fixed few loose ends.
 
 
-### Welcome/ Login Page View
-![Sign View](images/login.png)
 
-### Sign up Page
-![Sign up](images/signin.png)
-
-### Student View
-![Student View](images/student.png)
-### Student Course View
-![Student course View](images/course.png)
-### Student Class Work View
-![Student Class Work View](images/work.png)
-### Student Search Page
-![Student Submission](images/search.png)
-### Available Course
-![Student Submission](images/course1.png)
-
-### Admin View
-![Admin View](images/adminp1.png)
-### Admin View 
-![Admin View](images/adminp2.png)
 
 ## Ibnat Nuha 
 I learned how to create sitemap and wireframe.By doing this I learned how important it is to have a visualization before we create our website, I have never drawn any wire frame before so the video helped me a lot to prepare for this assignment. I have also learned how to use markup in Read.me file. I have created site map for this assignment and part of the wire frame where I layout out the idea for home page of the website.
@@ -57,18 +37,54 @@ requirements of the delivarable. I have also added some ejs code to admin page t
 For the final project I did connected other loose ends connected everythign with the database. Instructor and Students page are connected with database. 
 
 
+### Welcome/ Login Page View
+![Sign View](images/login.png)
+
+### Sign up Page
+![Sign up](images/signin.png)
+
+### Student View
+![Student View](images/student.png)
+
+### Student Course View
+![Student course View](images/course.png)
+
+### Student Class Work View
+![Student Class Work View](images/work.png)
+
+### Student Search Page
+![Student Submission](images/search.png)
+
+### Available Course
+![Student Submission](images/course1.png)
+
+### Admin View
+![Admin View](images/adminp1.png)
+
+### Admin View 
+![Admin View](images/adminp2.png)
 
 ### Instructor Home Page
-![Sign up](images/)
+![Sign up](images/teacher.png)
 
-### Each Course Page
-![Sign up](images/)
+### Create Course Page for Instructor
+![Create Course](images/createcourse.png)
 
-### All Student Submission
-![Sign up](images/)
+### Create Assignment Page for Instructor
+![Sign up](images/createA.png)
 
-### Instructor assigning assignment to student
-![Sign up](images/)
+### Edit Course
+![Sign up](images/edit.png)
+
+### Student Roster
+![Sign up](images/studentros.png)
+
+### Student Enroll Request
+![Sign up](images/enroll.png)
+
+### Student Grade
+![Sign up](images/grade.png)
+
 
 ![sitemap](images/sitemap.jpg)
 ![Wireframe page 1](images/Wireframe1.jpg)
